@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "description": "Deck for a talk about the R language for Java developers",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "build": "mdx-deck build deck.mdx",
+    "pdf": "mdx-deck pdf deck.mdx",
+    "image": "mdx-deck screenshot deck.mdx",
+    "help": "mdx-deck"
+  },
+  "keywords": [
+    "R",
+    "Java"
+  ],
+  "author": "Bruno Bonnin",
+  "license": "MIT",
+  "devDependencies": {
+    "mdx-deck": "^1.7.7",
+    "mdx-deck-code-surfer": "^0.5.3",
+    "raw-loader": "^0.5.1"
+  },
+  "name": "devoxx-ma"
+}
