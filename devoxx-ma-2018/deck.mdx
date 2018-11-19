@@ -1,15 +1,15 @@
-import { Head, Image, Root, Flex } from 'mdx-deck'
-import { Split, FullScreen } from 'mdx-deck/layouts'
+import { Head, Image, Root, Flex, Appear } from 'mdx-deck'
+import { Invert, Split, FullScreen } from 'mdx-deck/layouts'
 import { CodeSurfer } from "mdx-deck-code-surfer"
 import Box from 'superbox'
 import DemoStarwars from './DemoStarwars'
 import SplitElement from './SplitElement'
-import base from 'mdx-deck/themes'
+import { dark } from 'mdx-deck/themes'
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 
-
 export const theme = {
-  ...base,
+  ...dark,
+  
   codeSurfer: {
     ...nightOwl,
     showNumbers: false
@@ -17,24 +17,34 @@ export const theme = {
 }
 
 
+
 <Head>
   <title>De l'R les devs Java!</title>
-  <meta name='twitter:card' content='summary_large_image' />
-  <meta name='twitter:site' content='@_bruno_b_' />
-  <meta name='twitter:title' content='De l\'R les devs Java!' />
-  <meta name='twitter:description' content='Presentation faite à Devoxx Morocco 2018 sur le langage R à destination des Devs Java' />
-  <meta name='twitter:image' content='https://raw.githubusercontent.com/bbonnin/talk-de-l-r-les-devs-java/master/devoxx-ma-2018/img/card.png' />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@_bruno_b_" />
+  <meta name="twitter:title" content="De l'R les devs Java!" />
+  <meta name="twitter:description" content="Presentation faite à Devoxx Morocco 2018 sur le langage R à destination des Devs Java" />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/bbonnin/talk-de-l-r-les-devs-java/master/devoxx-ma-2018/img/card.png" />
 </Head>
+
+export default Invert
 
 # De l'![R](img/r.jpeg) les devs <img src="img/java.png" alt="Java" width="400"/> !
 
 Devoxx Morocco 2018
 
+`@_bruno_b_`
+
 ```notes
 Data science avec R pour les développeurs Java
+font: 'Roboto, sans-serif',
 ```
 
 ---
+
+export default Invert
+
 
 ## About me
 
@@ -64,6 +74,22 @@ Bruno Bonnin - @_bruno_b_
 <CodeSurfer
   title="La base"
   code={require("!raw-loader!./snippets/base.R")}
+  lang="bash"
+  steps={[
+    { notes: "Types de bases" },
+    { range: [1, 5], notes: "Types de base et affectation" },
+    { range: [7, 9], notes: "Vecteur (le premier indice est 1 !!!)" },
+    { range: [11, 18], notes: "Quelques opérations" },
+    { range: [20, 28], notes: "Nommage des items" },
+    { range: [30, 33], notes: "Fonctions de base: sum, mean, median, ... Cf https://cran.r-project.org/doc/contrib/Short-refcard.pdf" }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="La base (encore un peu...)"
+  code={require("!raw-loader!./snippets/base2.R")}
   lang="bash"
   steps={[
     { notes: "Long snippets are scaled ⬇️" },
@@ -149,6 +175,26 @@ CRAN - Comprehensive R Archive Network
 ---
 
 <img src="img/graalvm.png" width="75%"/>
+
+---
+
+## GraalVM
+
+Polyglot virtual machine
+Can run programs written in
+* Javascript
+* Ruby
+* Python 3
+* R
+* JVM-based languages (Java, Scala, Kotlin)
+* LLVM-based languages (C / C++)
+
+---
+
+## GraalVM: an example
+
+* Java micro-service using [SparkJava](http://sparkjava.com/)
+* Génération d'un diagramme en R avec Ggplot2'
 
 ---
 

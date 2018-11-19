@@ -26,7 +26,6 @@ const Title = styled.h2([], {
 
 export default class SplitElement extends React.Component {
   render() {
-    console.log(this.props)
     return (
       <Root css={{ backgroundColor: this.props.backgroundColor }}>
         <Title css={{ color: this.props.color }}>{ this.props.title }</Title>

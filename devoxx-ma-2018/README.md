@@ -1,7 +1,9 @@
 
-# mdx-deck basic template
+# devoxx-ma-2018
 
-This was generated with [mdx-deck][]'s `npm init deck` command.
+Deck for Devoxx Morocco 2018
+
+> This was generated with [mdx-deck][]'s `npm init deck` command.
 
 ## Development
 
@@ -10,8 +12,6 @@ To run the presentation deck in development mode:
 ```sh
 npm start
 ```
-
-Edit the [`deck.mdx`](deck.mdx) file to get started.
 
 ## Exporting
 

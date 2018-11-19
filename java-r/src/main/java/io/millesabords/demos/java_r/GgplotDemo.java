@@ -10,6 +10,7 @@ import static spark.Spark.staticFiles;
 
 public class GgplotDemo {
 
+
     public static void main(String[] args) throws Exception {
 
         final Context graalvmCtx = Context.newBuilder().allowAllAccess(true).build();
