@@ -5,8 +5,12 @@
 > my_bool <- TRUE
 
 > days <- c(31, 28, 31)
+
 > days[2]
 [1] 28
+
+> days[c(2,3)]
+[1] 28 31 
 
 > days + 1
 [1] 32 29 32
@@ -19,15 +23,17 @@
 
 > months <- c("january", "february", "march")
 > names(days) <- months
-> days
- january february    march 
-      31       28       31 
 
-> days[c(2,3)]
-february    march 
-      28       31 
+> days
+january february    march 
+     31       28       31 
+
+> days["january"]
+january 
+     31 
 
 > sum(days)
 [1] 90
+
 > mean(days)
 [1] 30

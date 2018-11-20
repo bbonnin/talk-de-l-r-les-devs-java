@@ -24,6 +24,10 @@ A New Hope              460.998  314.4
 The Empire Strikes Back 290.475  247.9
 Return of the Jedi      309.306  165.8
 
+> star_wars_matrix["A New Hope",]
+     US  non-US 
+460.998 314.400 
+
 > rowSums(star_wars_matrix)
 A New Hope The Empire Strikes Back      Return of the Jedi 
    775.398                 538.375                 475.106 

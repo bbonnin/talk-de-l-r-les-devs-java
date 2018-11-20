@@ -4,12 +4,12 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
 import Box from 'superbox'
 import DemoStarwars from './DemoStarwars'
 import SplitElement from './SplitElement'
-import { dark } from 'mdx-deck/themes'
+import base  from 'mdx-deck/themes'
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 
 export const theme = {
-  ...dark,
-  
+  ...base,  
+  font: 'Roboto, sans-serif',
   codeSurfer: {
     ...nightOwl,
     showNumbers: false
@@ -28,13 +28,11 @@ export const theme = {
   <meta name="twitter:image" content="https://raw.githubusercontent.com/bbonnin/talk-de-l-r-les-devs-java/master/devoxx-ma-2018/img/card.png" />
 </Head>
 
-export default Invert
 
 # De l'![R](img/r.jpeg) les devs <img src="img/java.png" alt="Java" width="400"/> !
 
 Devoxx Morocco 2018
 
-`@_bruno_b_`
 
 ```notes
 Data science avec R pour les développeurs Java
@@ -43,18 +41,57 @@ font: 'Roboto, sans-serif',
 
 ---
 
-export default Invert
-
-
 ## About me
 
-Bruno Bonnin - @_bruno_b_
+Bruno Bonnin - @\_bruno\_b\_
 
 ![R](img/my_technos.png)
 
 ---
 
+export default Split
+
+<Box>
+  <h2>whoami</h2>
+  <p>Bruno Bonnin - @_bruno_b_</p>
+  <i>Vieux développeur</i>
+</Box>
+
+<SplitElement img="img/haddock.png" backgroundColor="black" color="white"/>
+
+---
+
+export default Split
+
+<Box>
+  <h2>whoami</h2>
+  <p>Bruno Bonnin - @_bruno_b_</p>
+  <i>Vieux développeur</i>
+</Box>
+
+<SplitElement img="img/gandalf.png" backgroundColor="black" color="white"/>
+
+---
+
 <Image src="img/batman_superman.jpg" size="contain"/>
+
+---
+
+export default Split
+
+<SplitElement img="img/r.jpeg" backgroundColor="white" color="white"/>
+
+<Box is="div" p={4}>
+  <h2>Langage venant des statisticiens</h2>
+  <p style={{ fontSize: '0.5em' }}>(donc incompréhensibles pour des informaticiens normalement constitués...)</p>
+  <p>Inventé en 1993 (Université d'Auckland)</p>
+  <p>Dédié aux statistiques, très utilisé dans le monde de la data science</p>
+  <p>Grande communauté, beaucoup de librairies</p>
+  <p>Open source</p>
+</Box>
+
+[https://www.r-project.org/](https://www.r-project.org/)
+
 
 ---
 
@@ -76,20 +113,42 @@ Bruno Bonnin - @_bruno_b_
   code={require("!raw-loader!./snippets/base.R")}
   lang="bash"
   steps={[
-    { notes: "Types de bases" },
     { range: [1, 5], notes: "Types de base et affectation" },
-    { range: [7, 9], notes: "Vecteur (le premier indice est 1 !!!)" },
-    { range: [11, 18], notes: "Quelques opérations" },
-    { range: [20, 28], notes: "Nommage des items" },
-    { range: [30, 33], notes: "Fonctions de base: sum, mean, median, ... Cf https://cran.r-project.org/doc/contrib/Short-refcard.pdf" }
+    { range: [7, 13], notes: "Vecteur (le premier indice est 1 !!!)" },
+    { range: [15, 22], notes: "Quelques opérations (applicables sur des vecteurs)" },
+    { range: [24, 25], notes: "Nommage des items" },
+    { range: [27, 33], notes: "Nommage des items" },
+    { range: [35, 39], notes: "Fonctions de base: sum, mean, median, ..." }
+  ]}
+/>
+
+
+```notes
+Cf https://cran.r-project.org/doc/contrib/Short-refcard.pdf
+```
+
+
+---
+
+<CodeSurfer
+  title="La base - les built-in functions"
+  code={require("!raw-loader!./snippets/builtin_fcts.R")}
+  lang="bash"
+  steps={[
+    { notes: "Long snippets are scaled ⬇️" },
+    { range: [1, 5], notes: "⬇️" },
+    { range: [5, 13], notes: "⬇️" },
+    { range: [15, 32], notes: "⬇️" },
+    { lines: [30, 35], notes: "⬇️" },
+    { range: [15, 32], lines: [40], notes: "➡️" }
   ]}
 />
 
 ---
 
 <CodeSurfer
-  title="La base (encore un peu...)"
-  code={require("!raw-loader!./snippets/base2.R")}
+  title="La base (les matrices)"
+  code={require("!raw-loader!./snippets/matrix.R")}
   lang="bash"
   steps={[
     { notes: "Long snippets are scaled ⬇️" },
@@ -105,29 +164,9 @@ Bruno Bonnin - @_bruno_b_
 
 export default Split
 
-![R](img/r.jpeg)
+<SplitElement img="img/ide_r.png" title="R" backgroundColor="black" color="white"/>
 
-<Box
-  fontSize={3}
-  p={4}
-  bg='none'>
-  Langage venant des statisticiens
-</Box>
-
-<Box
-  fontSize={0}
-  p={4}
-  bg='none'>
-  (donc incompréhensibles pour des informaticiens normalement constitués...)
-</Box>
-
----
-
-export default Split
-
-<SplitElement src="img/ide_r.png" title="R" backgroundColor="black" color="white"/>
-
-<SplitElement src="img/ide_java.png" title="Java" backgroundColor="white" color="black"/>
+<SplitElement img="img/ide_java.png" title="Java" backgroundColor="white" color="black"/>
 
 ---
 

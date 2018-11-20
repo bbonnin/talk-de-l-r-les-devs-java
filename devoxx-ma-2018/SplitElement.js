@@ -26,10 +26,27 @@ const Title = styled.h2([], {
 
 export default class SplitElement extends React.Component {
   render() {
+    let title = ''
+    let img = ''
+    let others = ''
+
+    if (this.props.title) {
+      title = <Title css={{ color: this.props.color }}>{ this.props.title }</Title>
+    }
+
+    if (this.props.img) {
+      img = <Image src={ this.props.img }/>
+    }
+
+    if (this.props.children) {
+      others = this.props.children
+    }
+
     return (
-      <Root css={{ backgroundColor: this.props.backgroundColor }}>
-        <Title css={{ color: this.props.color }}>{ this.props.title }</Title>
-        <Image src={this.props.src}/>
+      <Root css={{ backgroundColor: this.props.backgroundColor, color: this.props.color }}>
+        { title }
+        { img }
+        { others }
       </Root>
     )
   }
