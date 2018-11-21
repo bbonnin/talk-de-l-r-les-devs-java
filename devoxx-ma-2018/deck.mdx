@@ -79,10 +79,10 @@ export default Split
 
 export default Split
 
-<SplitElement img="img/r.jpeg" backgroundColor="white" color="white"/>
+<SplitElement img="img/Rlogo.png" backgroundColor="white" color="white"/>
 
 <Box is="div" p={4}>
-  <h2>Langage venant des statisticiens</h2>
+  <h2>Langage de script venant des statisticiens</h2>
   <p style={{ fontSize: '0.5em' }}>(donc incompréhensibles pour des informaticiens normalement constitués...)</p>
   <p>Inventé en 1993 (Université d'Auckland)</p>
   <p>Dédié aux statistiques, très utilisé dans le monde de la data science</p>
@@ -99,10 +99,9 @@ export default Split
   title="C'est parti !"
   code={require("!raw-loader!./snippets/start.R")}
   steps={[
-  	{ notes: "De base, on utilise l'interpréteur R disponible sur https://www.r-project.org/" },
-    { lines: [1], notes: "Lancement de l'interpréteur..." },
-    { range: [3, 6] },
-    { lines: [8], notes: "... vous êtes maintenant prêt à coder !" }
+    { range: [1, 6], notes: "Lancement de l'interpréteur..." },
+    { lines: [8], notes: "... vous êtes maintenant prêt à coder !" },
+    { range: [10, 11] }
   ]}
 />
 
@@ -113,52 +112,56 @@ export default Split
   code={require("!raw-loader!./snippets/base.R")}
   lang="bash"
   steps={[
-    { range: [1, 5], notes: "Types de base et affectation" },
-    { range: [7, 13], notes: "Vecteur (le premier indice est 1 !!!)" },
-    { range: [15, 22], notes: "Quelques opérations (applicables sur des vecteurs)" },
-    { range: [24, 25], notes: "Nommage des items" },
-    { range: [27, 33], notes: "Nommage des items" },
-    { range: [35, 39], notes: "Fonctions de base: sum, mean, median, ..." }
+    { notes: "Quelques notions de base..." },
+    { range: [1, 4], notes: "Types de base et affectation" },
+    { range: [6, 9], notes: "Les vecteurs" },
+    { range: [11, 23], notes: "Accès aux éléments d'un vecteur" },
+    { range: [25, 33], notes: "Quelques opérations" },
+    { range: [35, 49], notes: "Nommage des éléments" }
   ]}
 />
+
+```notes
+le premier indice est 1 !!!
+```
+
+---
+
+<SplitElement img="img/builtin_fcts.png" title="Fonctions (maths, stats)" backgroundColor="white" color="black"/>
 
 
 ```notes
-Cf https://cran.r-project.org/doc/contrib/Short-refcard.pdf
+https://cran.r-project.org/doc/contrib/Short-refcard.pdf
+https://www.rstudio.com/resources/cheatsheets/
 ```
-
-
 ---
 
 <CodeSurfer
-  title="La base - les built-in functions"
-  code={require("!raw-loader!./snippets/builtin_fcts.R")}
+  title="Programmer / Instructions"
+  code={require("!raw-loader!./snippets/programming.R")}
   lang="bash"
-  steps={[
-    { notes: "Long snippets are scaled ⬇️" },
-    { range: [1, 5], notes: "⬇️" },
-    { range: [5, 13], notes: "⬇️" },
-    { range: [15, 32], notes: "⬇️" },
-    { lines: [30, 35], notes: "⬇️" },
-    { range: [15, 32], lines: [40], notes: "➡️" }
-  ]}
 />
 
 ---
 
 <CodeSurfer
-  title="La base (les matrices)"
+  title="Les matrices"
   code={require("!raw-loader!./snippets/matrix.R")}
   lang="bash"
   steps={[
-    { notes: "Long snippets are scaled ⬇️" },
-    { range: [1, 5], notes: "⬇️" },
-    { range: [5, 13], notes: "⬇️" },
-    { range: [15, 32], notes: "⬇️" },
-    { lines: [30, 35], notes: "⬇️" },
-    { range: [15, 32], lines: [40], notes: "➡️" }
+    { notes: "Création et opérations sur les matrices" },
+    { range: [1, 4], notes: "Sources des données" },
+    { range: [6, 11], notes: "Création de la matrice" },
+    { range: [13, 23], notes: "Nommage des colonnes/lignes" },
+    { range: [25, 27], notes: "Accès aux éléments" },
+    { range: [29, 31], notes: "Opérations sur les éléments" }
   ]}
 />
+
+---
+
+## Plot
+
 
 ---
 
