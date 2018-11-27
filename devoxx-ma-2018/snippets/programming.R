@@ -1,34 +1,15 @@
-for (variable in sequence) {
-	# votre code
+somme <- function (elements = c()) {
+  
+  total <- 0
+  
+  for (elt in elements) {
+    
+    if (is.numeric(elt)) {
+      total <- total + elt
+    }
+  }
+  
+  return (total)
 }
 
-whle (condition) {
-	# le code
-}
-
-if (condition) {
-	# faire ceci
-} else {
-	# faire cela
-}
-
-ma_fonction <- function(paramètres) {
-	# faire plein de choses
-	return resultat
-}
-
-# faire un exemple complet avec toutes les instructions
-
-pretty_print <- function (elements) {
-
-	if ( is.null(elements) ) {
-	
-		print('Erreur: elements == null')
-	
-	} else {
-
-		for (elt in elements) {
-			print('> ', elt)
-		}
-	}
-}
+somme(c(1, 3, 5))

@@ -24,14 +24,26 @@ const Title = styled.h2([], {
   color
 )
 
+const SubTitle = styled.h3([], {
+  color: 'white',
+  marginBlockStart: 'initial'
+}, props => props.css,
+  color
+)
+
 export default class SplitElement extends React.Component {
   render() {
     let title = ''
+    let subtitle = ''
     let img = ''
     let others = ''
 
     if (this.props.title) {
       title = <Title css={{ color: this.props.color }}>{ this.props.title }</Title>
+    }
+
+    if (this.props.subtitle) {
+      subtitle = <SubTitle css={{ color: this.props.color }}>{ this.props.subtitle }</SubTitle>
     }
 
     if (this.props.img) {
@@ -45,6 +57,7 @@ export default class SplitElement extends React.Component {
     return (
       <Root css={{ backgroundColor: this.props.backgroundColor, color: this.props.color }}>
         { title }
+        { subtitle }
         { img }
         { others }
       </Root>

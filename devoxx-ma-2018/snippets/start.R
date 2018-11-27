@@ -5,7 +5,10 @@ Copyright (C) 2018
 The R Foundation for Statistical Computing
 Platform: x86_64-apple-darwin15.6.0 (64-bit)
 
+> print("Hello World !")
+[1] "Hello World !"
 > █
 
-> "Hello World !"
+
+$ Rscript -e 'print("Hello World !")'
 [1] "Hello World !"

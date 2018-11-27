@@ -20,5 +20,8 @@
     "mdx-deck-code-surfer": "^0.5.3",
     "raw-loader": "^0.5.1"
   },
-  "name": "devoxx-ma"
+  "name": "devoxx-ma",
+  "dependencies": {
+    "react-syntax-highlighter": "^10.1.1"
+  }
 }

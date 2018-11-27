@@ -3,13 +3,12 @@ my_character <- "Hello"
 my_numeric <- 42
 my_bool <- TRUE
 
-# Les vecteurs
+# Vecteurs
 my_vec <- c(1, 3, 5)
 my_vec <- 2:4
 my_vec <- seq(2, 3, by=0.5) 
 
-# Accès aux éléments
-> my_vec <- c(1, 3, 5)
+# Accès aux éléments pour my_vec <- c(1, 3, 5)
 > my_vec[2]
 [1] 3
 
@@ -47,3 +46,8 @@ january february    march
 > nb_days["january"]
 january 
      31 
+
+> sum(nb_days)
+[1] 90
+> mean(nb_days)
+[1] 30
