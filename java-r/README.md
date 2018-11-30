@@ -2,7 +2,13 @@
 
 > Demo project for Java and R using GraalVM
 
-> Largely inspired by: https://github.com/graalvm/graalvm-demos/tree/master/spring-r 
+> Source for the first version: https://github.com/graalvm/graalvm-demos/tree/master/spring-r 
+
+This demo has two parts:
+* R script with several functions invoked by the Java part of the app
+  * `plotRevenue`: it uses objects/classes from Java
+  * `revenueStats`: for showing how to use a map as result of the function
+* Java app using the R functions to process the data
 
 
 ## Pre-requisite
@@ -21,3 +27,7 @@ export PATH=$GRAALVM_HOME/bin:$PATH
 mvn exec:java -Pplot
 ```
 
+Open your browser: `http://localhost:4567/`
+
+![Stats](img/stats.png)
+![Plot](img/plot.png)

@@ -1,9 +1,12 @@
 library(ggplot2)
 library(scales)
 
-logger <- java.type("io.millesabords.demos.java_r.LogHolder")
+logger <- java.type("io.millesabords.demos.java_r.Logger")
 
-function(params) {
+#############################################################################################
+# With plotRevenue, all the context for the execution is provided by the Java app
+
+plotRevenue <- function(params) {
     svg()
 
     logger$log("CODE R - Process file:", params$filename)
@@ -30,3 +33,24 @@ function(params) {
     print(plot)
     svg.off()
 }
+
+#############################################################################################
+# In this function, csvFilename is set by the Java part of the app
+
+csvFilename <- ""
+
+revenueStats <- function() {
+    logger$log("CODE R - Stats about revenue: ", csvFilename)
+
+    starwars <- read.csv(file = csvFilename, header = TRUE, sep = ",")
+    fact <- sapply(starwars, is.factor)
+    starwars[fact] <- lapply(starwars[fact], as.character)
+
+    best <- starwars[which.max(starwars$revenue),]
+    worst <- starwars[which.min(starwars$revenue),]
+    avg <- mean(starwars$revenue)
+
+    list(best=list(title=best$title, revenue=best$revenue), worst=list(title=worst$title, revenue=worst$revenue), mean=avg)
+}
+
+list(csvFilename=csvFilename, revenueStats=revenueStats, plotRevenue=plotRevenue)

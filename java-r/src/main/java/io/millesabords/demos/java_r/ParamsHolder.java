@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 
 /**
- * Use to provide parameters to R code.
+ * Use to provide parameters to R code (function: plotRevenue).
  */
 public class ParamsHolder {
 
