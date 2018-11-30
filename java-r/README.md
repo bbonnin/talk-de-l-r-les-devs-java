@@ -11,3 +11,10 @@ export GRAALVM_HOME=/path/to/graalvm
 export JAVA_HOME=$GRAALVM_HOME
 export PATH=$GRAALVM_HOME/bin:$PATH
 ```
+
+## Run
+
+```
+mvn exec:java -Pplot
+```
+
