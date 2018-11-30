@@ -2,7 +2,7 @@
 
 > Demo project for Java and R using GraalVM
 
-> Inspired by: https://github.com/graalvm/graalvm-demos/tree/master/spring-r 
+> First version, inspired by: https://github.com/graalvm/graalvm-demos/tree/master/spring-r 
 
 This demo has two parts:
 * R script with several functions invoked by the Java part of the app
