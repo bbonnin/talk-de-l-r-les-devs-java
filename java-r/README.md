@@ -2,6 +2,9 @@
 
 > Demo project for Java and R using GraalVM
 
+> Largely inspired by: https://github.com/graalvm/graalvm-demos/tree/master/spring-r 
+
+
 ## Pre-requisite
 
 * Install `GraalVM`
