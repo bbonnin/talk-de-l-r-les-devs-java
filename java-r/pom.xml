@@ -97,6 +97,12 @@
                 <main.class>io.millesabords.demos.java_r.GgplotDemo</main.class>
             </properties>
         </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <main.class>io.millesabords.demos.java_r.RGraalVM</main.class>
+            </properties>
+        </profile>
     </profiles>
 </project>
 

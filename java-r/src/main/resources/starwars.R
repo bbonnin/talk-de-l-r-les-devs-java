@@ -6,13 +6,13 @@ logger <- java.type("io.millesabords.demos.java_r.LogHolder")
 function(params) {
     svg()
 
-    logger$log("Process file:", params$filename)
+    logger$log("CODE R - Process file:", params$filename)
 
     starwars <- read.csv(file = params$filename, header = TRUE, sep = ",")
 
     if (!is.null(params$trilogies)) {
         trilogies <- as.vector(params$trilogies)
-        logger$log("Filter with ", trilogies)
+        logger$log("CODE R - Filter with ", trilogies)
         starwars <- starwars[starwars$trilogy %in% trilogies, ]
     }
 
