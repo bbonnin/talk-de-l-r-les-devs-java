@@ -36,8 +36,8 @@ public class StarwarsApp {
         //
         graalvmCtx.getBindings("R").putMember("csvFilename", "starwars.csv");
 
-        //staticFiles.location("/public");
-        staticFiles.externalLocation("src/main/resources/public");
+        staticFiles.location("/public");
+        //staticFiles.externalLocation("src/main/resources/public");
 
         get("/starwars/svg/:trilogies", (req, res) -> {
             final String trilogies = req.params(":trilogies");
