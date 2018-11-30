@@ -8,8 +8,6 @@ import AppearDisappear from './AppearDisappear'
 import base  from 'mdx-deck/themes'
 import Highlight, { defaultProps } from "prism-react-renderer"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
-import okaidia from 'react-syntax-highlighter/styles/hljs/ocean'
-import prismPython from 'react-syntax-highlighter/languages/prism/python'
 import Code from './Code'
 
 
@@ -20,12 +18,6 @@ export const theme = {
   codeSurfer: {
     ...nightOwl,
     showNumbers: false
-  },
-  prism: {
-    style: okaidia,
-    languages: {
-      python: prismPython
-    }
   }
 }
 
@@ -61,12 +53,7 @@ export default Split
   <i>Vieux développeur</i>
 </Box>
 
-<SplitElement backgroundColor="black" color="white">
-  <AppearDisappear>
-    <img src="img/gandalf.png"/>
-    <img src="img/haddock.png"/>
-  </AppearDisappear>
-</SplitElement>
+<SplitElement img="img/haddock.png" backgroundColor="black" color="white"/>
 
 ```notes
 Bien, tout d'abord, je me présente rapidement, je m'appelle Bruno Bonnin, je suis un vieux développeurs
@@ -83,17 +70,6 @@ qui permet d'accélérer la mise en oeuvre de vos projets autour de la data et d
 Depuis 1 an que je présente le produit, j'ai pu me former à R qui était le seul composant que je ne 
 connaissais pas. Et cette présentation est un peu le résultat de ma montée en compétence et de mes étonnements 
 de développeur Java dans un monde de statisticiens.
-```
-
----
-
-## Slide de conclusion ?
-<Image src="img/batman_superman.jpg" size="contain"/>
-
-```notes
-Donc, au tout début, j'avais un peu l'impression qu'il y avait 2 mondes qui se faisait face, chacun montrant
-ses muscles à l'autre, mais au final, chacun a ses forces et ses faiblesses, mais je pense qu'avec GraalVM, on pourrait
-avoir dans un proche avenir une coopération forte où chaque technologie pourra collaborer.
 ```
 
 ---
@@ -126,7 +102,9 @@ Manipulation de données, calcul, préparation
   title="Les interpréteurs"
   code={require("!raw-loader!./snippets/start.R")}
   steps={[
-    { range: [1, 10], notes: "R : pour Lancement de l'interpréteur en mode interactif" },
+    { range: [1, 1], notes: "C'est parti !!!" },
+    { range: [1, 6], notes: "R : pour Lancement de l'interpréteur en mode interactif" },
+    { range: [8, 10], notes: "" },
     { range: [13, 14], notes: "Rscript : pour lancement de commandes ou de fichiers" }
   ]}
 />
@@ -139,37 +117,35 @@ Et vous pourrez, alors, attaquer directement vos développements !!
 
 ---
 
+## Commençons par les types...
+
+Type | Exemples
+---|---
+__character__, __numeric__, __logical__ | "Hello World" 42 TRUE
+__vector__ | c("Pomme", "Citron")<br/>2:5<br/>seq(2, 3, by=0.5)
+__matrix__ | matrix(data, byrow = TRUE, nrow = 3)
+__data.frame__ | data.frame(<br/>&nbsp;&nbsp;planete = c("Mercury", "Venus", "Earth"),<br/>&nbsp;&nbsp;diametre = c(0.382, 0.949, 1))
+
+
+---
+
 <CodeSurfer
-  title="La base"
-  code={require("!raw-loader!./snippets/base.R")}
+  title="Continuons avec les vecteurs"
+  code={require("!raw-loader!./snippets/vector.R")}
   lang="python"
   showNumbers={false}
   steps={[
-    { notes: "Quelques notions de base..." },
-    { range: [1, 4], notes: "Types de base et affectation" },
-    { range: [6, 9], notes: "Les vecteurs (tous les éléments sont de même type)" },
-    { range: [11, 22], notes: "Accès aux éléments d'un vecteur" },
-    { range: [24, 32], notes: "Quelques opérations" },
-    { range: [34, 48], notes: "Nommage des éléments" },
-    { range: [50, 53], notes: "Fonctions de base sur les éléments" }
+    { range: [1, 1], notes: "Dans un vecteur, tous les éléments sont de même type" },
+    { range: [3, 14], notes: "Accès aux éléments d'un vecteur" },
+    { range: [16, 24], notes: "Quelques opérations" },
+    { range: [26, 38], notes: "Nommage des éléments" },
+    { range: [40, 44], notes: "Fonctions de base sur les éléments" }
   ]}
 />
 
 ```notes
-le premier indice est 1 !!!
-```
-
----
-
-<Image src="img/builtin_fcts.png" size="contain"/>
-
-
-```notes
-https://cran.r-project.org/doc/contrib/Short-refcard.pdf
-https://www.rstudio.com/resources/cheatsheets/
-
-Il existe de nombreuses fonctions mathématiques et statistiques fournies de base par R,
-ainsi des fonctions d'accès aux fichiers, permettant même de lire certains formats (csv)
+Vecteurs: ensemble d'éléments de même types (conversion automatiques)
+et le premier indice est 1 !!!
 ```
 
 ---
@@ -190,31 +166,72 @@ ainsi des fonctions d'accès aux fichiers, permettant même de lire certains for
 />
 
 ```notes
+Tableau à deux dimensions.
 Pour construire une matrice, on part d'un set de données.
 ```
 
 ---
 
 <CodeSurfer
-  title="Instructions"
-  code={require("!raw-loader!./snippets/programming.R")}
+  title="Les data frames"
+  code={require("!raw-loader!./snippets/dataframe.R")}
   lang="python"
+  showNumbers={false}
   steps={[
-    { notes: "Tout ce qu'il faut développer de vrais programmes, bien sûr !" },
-    { lines: [1, 13], notes: "Définition de fonction (passage par valeur des paramètres)" },
-    { lines: [5, 10], notes: "Boucles for" },
-    { range: [7, 9], notes: "Conditions" },
-    { lines: [15], notes: "Appel de fonction" }
+    { notes: "Création et opérations sur les data frames" },
+    { range: [1, 1], notes: "Chargement des données" },
+    { range: [3, 6], notes: "Premiers éléments de la data frame" },
+    { range: [8, 11], notes: "Structure des données" },
+    { range: [13, 21], notes: "Informations sur les données" },
+    { range: [23, 28], notes: "Ajout d'une colonne" },
+    { range: [30, 35], notes: "Opérations sur les éléments" }
   ]}
 />
+
+```notes
+Data frames (tableau à 2 dimensiopns)
+Il peut y avoir des types différents, mais 
+dans une colonne, tous les éléments doivent avoir le même type.
+```
 
 ---
 
 export default Split
 
-<Code code={require("!raw-loader!./snippets/start.R")}/>
+<Code title="Graphiques" code={require("!raw-loader!./snippets/plots.R")}/>
 
-<SplitElement img="img/plots.png" title="Java" backgroundColor="white" color="black"/>
+<SplitElement img="img/plots.png" backgroundColor="white" color="black"/>
+
+---
+
+## Les packages
+
+CRAN - Comprehensive R Archive Network
+
+<a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" target="_blank">https://cran.r-project.org/</a>
+
+
+```notes
+Sympa, riche
+Bcp de mirroirs (dont certains avec leurs propres packages : se rapproche d'un modèle de type yum)
+```
+
+---
+
+<CodeSurfer
+  title="Packages"
+  code={require("!raw-loader!./snippets/packages.R")}
+  lang="python"
+  showNumbers={false}
+  steps={[
+    {},
+    { range: [1, 2], notes: "Installation depuis les repos du CRAN" },
+    { range: [4, 7] },
+    { range: [9, 10] },
+    { range: [12, 13], notes: "Utilisation d'une librairie installée"},
+    { range: [15, 24], notes: "Installation depuis des sources diverses" }
+  ]}
+/>
 
 ---
 
@@ -226,50 +243,7 @@ export default Split
 
 ---
 
-## Les packages
-
-CRAN - Comprehensive R Archive Network
-
-* https://cran.r-project.org/
-
-```notes
-- il existe bcp de sites mirroirs
-```
-
----
-
-<CodeSurfer
-  title="Librairies"
-  code={require("!raw-loader!./snippets/packages.R")}
-  lang="python"
-  steps={[
-    { notes: "Installation depuis les repos du CRAN" },
-    { range: [1, 2] },
-    { range: [4, 5] },
-    { range: [7, 10] },
-    { lines: [12, 13] }
-  ]}
-/>
-
----
-
-<CodeSurfer
-  title="Librairies"
-  code={require("!raw-loader!./snippets/devtools.R")}
-  lang="python"
-  steps={[
-    { notes: "Installation depuis des sources diverses" },
-    { lines: [1] },
-    { range: [3, 4] },
-    { lines: [6] },
-    { range: [7, 9] },
-    { range: [11, 12] }
-  ]}
-/>
-
----
-
-# R et Java ?
+# R + Java ?
 
 ---
 
@@ -278,11 +252,7 @@ CRAN - Comprehensive R Archive Network
   code={require("!raw-loader!./snippets/rjava.R")}
   lang="python"
   steps={[
-    { notes: "Librairie d'interface avec Java (via JNI)" },
-    { range: [1, 3], notes: "Chargement et initialisation de la JVM" },
-    { lines: [5], notes: "Instanciation d'un objet Java" },
-    { range: [7, 8], notes: "Appel de méthode" },
-    { range: [10, 14], notes: "Print d'un objet" }
+    { notes: "Librairie d'interface avec Java (via JNI)" }
   ]}
 />
 
@@ -308,36 +278,34 @@ http://docs.renjin.org/en/latest/interactive/index.html
 
 export default Split
 
-<img src="img/graalvm.png" width="75%"/>
+<img src="img/graalvm_logo.png" width="90%"/>
 
-### Polyglot Virtual Machine
+<Box is="div" p={4} fontSize={1}>
+  <h2>Polyglot Virtual Machine</h2>
+  <ul style={{listStyleType: 'none'}}>
+    <li>Langages pour la JVM (Java, Scala, Kotlin)</li>
+    <li>Langages basées LLVM (C / C++)</li>
+    <li>Javascript</li>
+    <li>Python 3</li>
+    <li>Ruby</li>
+    <li><b>R</b></li>
+  </ul>
+</Box>
 
-* JVM-based languages (Java, Scala, Kotlin)
-* LLVM-based languages (C / C++)
-* Javascript
-* Ruby
-* Python 3
-* __R__
-
-Intéraction possible entre les langages
 
 ```notes
-Can run programs written in these languages
+Peut faire tourner des programmes écrits dans tous ces langages.
 Permet aussi de prendre le meilleur de chacun des langages et de les mixer !!
+Parler du fait, qu'avec GraalVM, on va pouvoir construire des applications polyglot
+et performante (image native), avec une bien meilleure intégration des différentes competences 
+developpeurs/statisticiens/data scientists
 ```
 
 ---
 
-export default SplitRight
+## Demo - Box Office Star Wars
 
-
-<img src="http://localhost:4567/starwars/1,2,3"/>
-
-## GraalVM: an example
-
-* Java micro-service using [SparkJava](http://sparkjava.com/)
-* Génération d'une diagramme en R avec Ggplot2
-
+<DemoStarwars/>
 
 ---
 
@@ -349,8 +317,8 @@ export default SplitRight
   { notes: "Service construisant un SVG" },
     { range: [5, 6], notes: "Initialisation du contexte GraalVM" },
     { range: [8, 13], notes: "Chargement du code R" },
-    { range: [15, 24], "notes": "Service web d'accès au SVG" },
-    { range: [18, 19], notes: "Appel de la fonction R, qui retourne le SVG" }
+    { range: [15, 26], "notes": "Service web d'accès au SVG" },
+    { range: [20, 21], notes: "Appel de la fonction R, qui retourne le SVG" }
   ]}
 />
 
@@ -366,11 +334,9 @@ Le moteur de R est FastR (d'Oracle)
   lang="python"
   steps={[
     { notes: "Fonction R construisant un SVG" },
-    { lines: [4], notes: "Utilisation d'un type (classe) venant de Java"},
-    { lines: [9], notes: "Utilisation de la classe Logger venant de Java"},
-    { lines: [6], notes: "Paramètre venant de Java (classe ParamsHolder)" },
-    { lines: [9], notes: "Utilisation direct de l'attribut filename (String)" },
-    { lines: [13, 14, 16], notes: "Utilisation de l'attribut trilogies (tableau d'entiers)" }
+    { lines: [4, 9, 10], notes: "Utilisation d'un type (classe) venant de Java"},
+    { lines: [6, 12], notes: "Utilisation direct de l'attribut filename (String)" },
+    { lines: [6, 14, 15, 16, 17], notes: "Utilisation de l'attribut trilogies (tableau d'entiers)" }
   ]}
 />
 
@@ -381,21 +347,16 @@ Le moteur de R est FastR (d'Oracle ?)
 
 ---
 
+<Image src="img/batman_superman.jpg" size="contain"/>
 
-## Demo
-
-<DemoStarwars/>
-
----
-
-Vectors (one dimensional array): can hold numeric, character or logical values. The elements in a vector all have the same data type.
-Matrices (two dimensional array): can hold numeric, character or logical values. The elements in a matrix all have the same data type.
-Data frames (two-dimensional objects): can hold numeric, character or logical values. Within a column all elements have the same data type, but different columns can be of different data type.
+```notes
+Donc, au tout début, j'avais un peu l'impression qu'il y avait 2 mondes qui se faisait face, chacun montrant
+ses muscles à l'autre, mais au final, chacun a ses forces et ses faiblesses, mais je pense qu'avec GraalVM, on pourrait
+avoir dans un proche avenir une coopération forte où chaque technologie pourra collaborer.
+```
 
 ---
 
-## Conclusion
+# Merci !
 
-> “The best thing about R is that it was written by statisticians. The worst thing about R is that it was written by statisticians”
-
-– Bow Cowgill
+[https://github.com/bbonnin/talk-de-l-r-les-devs-java](https://github.com/bbonnin/talk-de-l-r-les-devs-java)

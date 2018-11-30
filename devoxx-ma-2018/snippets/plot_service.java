@@ -15,6 +15,8 @@ public class GgplotDemo {
         get("/starwars/:trilogies", (req, res) -> {
             String trilogies = req.params(":trilogies");
             
+            Logger.log("CODE JAVA - trilogies=" / trilogies);
+
             String svg = fctR.apply(
                     new ParamsHolder("starwars.csv", trilogies));
 

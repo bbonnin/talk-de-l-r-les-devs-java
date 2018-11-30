@@ -6,7 +6,7 @@ import theme from 'prism-react-renderer/themes/nightOwl'
 export default class Code extends React.Component {
   render() {
     let code = this.props.code
-    console.log(defaultProps)
+    let title = this.props.title
 
     return (
       <Highlight {...defaultProps} theme={theme} code={code} language="python">
@@ -16,23 +16,29 @@ export default class Code extends React.Component {
             
             <div style={{height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
               
-              <h1>Plot</h1>
+              <h1>{title}</h1>
 
               <div style={{flexGrow: '1', display: 'flex', alignItems: 'flex-start', overflow: 'hidden', transform: 'scale(0.9)'}}>
-              
-                <code className={className, 'scroll-content'} style={Object.assign(
-                    {},
-                    { display: "inline-block", textAlign: "left", width: "100%" },
-                    style
-                  )}>
-                  {tokens.map((line, i) => (
-                    <div {...getLineProps({ line, key: i })}>
-                      {line.map((token, key) => (
-                        <span {...getTokenProps({ token, key })} />
+
+                <pre>
+
+                  <div style={{position: 'relative'}}>
+                
+                    <code className={className, 'scroll-content'} style={Object.assign(
+                        {},
+                        { display: "inline-block", textAlign: "left", width: "100%" },
+                        style
+                      )}>
+                      {tokens.map((line, i) => (
+                        <div {...getLineProps({ line, key: i })}>
+                          {line.map((token, key) => (
+                            <span {...getTokenProps({ token, key })} />
+                          ))}
+                        </div>
                       ))}
-                    </div>
-                  ))}
-                </code>
+                    </code>
+                  </div>
+                </pre>
               </div>
             </div>
           </div>

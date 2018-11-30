@@ -16,8 +16,8 @@
 # Nommage des éléments
 > colnames(starwars_bo) <- c("US", "non-US")
 > rownames(starwars_bo) <- c("A New Hope", 
-	                     "The Empire Strikes Back", 
-	                     "Return of the Jedi")
+                         "The Empire Strikes Back", 
+                         "Return of the Jedi")
 
                          US non-US
 A New Hope              460    314

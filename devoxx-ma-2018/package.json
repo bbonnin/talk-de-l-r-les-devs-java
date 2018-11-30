@@ -21,7 +21,5 @@
     "raw-loader": "^0.5.1"
   },
   "name": "devoxx-ma",
-  "dependencies": {
-    "react-syntax-highlighter": "^10.1.1"
-  }
+  "dependencies": {}
 }

@@ -230,21 +230,6 @@ Attack of the Clones    62.14  67.74
 Revenge of the Sith     76.06  93.70
 
 
-Raiders of the Lost Ark
-Indiana Jones and the Temple of Doom
-Indiana Jones and the Last Crusade
-Indiana Jones and the Kingdom of the Crystal Skull
-
-titles <- c("Raiders of the Lost Ark",
-	"Indiana Jones and the Temple of Doom",
-	"Indiana Jones and the Last Crusade",
-	"Indiana Jones and the Kingdom of the Crystal Skull")
-
-Les Aventuriers de l'arche perdue	1981	242 374 454 $	141 766 000 $	384 140 454 $	6 397 117	3,4
-Indiana Jones et le Temple maudit	1984	179 870 271 $	153 237 000 $	333 107 271 $	5 683 254	5,6
-Indiana Jones et la Dernière Croisade	1989	197 171 806 $	277 000 000 $	474 171 806 $	6 249 271	7,8
-Indiana Jones et le Royaume du crâne de cristal	2008	317 101 119 $	469 534 914 $	786 636 033 $	4 199 771	9,10
-
 
 mtcars
 

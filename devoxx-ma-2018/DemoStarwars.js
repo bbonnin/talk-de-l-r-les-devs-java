@@ -24,7 +24,7 @@ const Button = styled.button`
 `;
 
 const Image = styled.img([], {
-  width: '75%'
+  width: '70%'
 })
 
 
