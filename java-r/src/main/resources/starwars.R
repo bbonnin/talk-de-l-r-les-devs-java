@@ -13,8 +13,11 @@ plotRevenue <- function(params) {
 
     starwars <- read.csv(file = params$filename, header = TRUE, sep = ",")
 
+    fill_colors <- c("#ffaabf", "#8bd1f9", "#fcdf9a")
+
     if (!is.null(params$trilogies)) {
         trilogies <- as.vector(params$trilogies)
+        fill_colors <- fill_colors[trilogies]
         logger$log("CODE R - Filter with ", trilogies)
         starwars <- starwars[starwars$trilogy %in% trilogies, ]
     }
@@ -25,7 +28,7 @@ plotRevenue <- function(params) {
         geom_col(color = "white") +
         scale_y_continuous(name = "Revenue ($)", labels = comma) +
         scale_x_discrete(name = "", labels = wrap_format(11)) +
-        scale_fill_manual(values = c("#66c2a5", "#fc8d62", "#8da0cb")) +
+        scale_fill_manual(values = fill_colors) +
         guides(fill = FALSE) +
         theme_minimal() +
         theme(axis.text = element_text(family = "Arial", size = 8), text = element_text(family = "Arial"))

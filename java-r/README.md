@@ -15,10 +15,24 @@ This demo has two parts:
 
 * Install `GraalVM`
 * Set your `JAVA_HOME` to the JRE of your installation of GraalVM, for example:
-```
+```bash
 export GRAALVM_HOME=/path/to/graalvm
 export JAVA_HOME=$GRAALVM_HOME
 export PATH=$GRAALVM_HOME/bin:$PATH
+```
+
+* Install R component
+```bash
+# List available components
+gu list -c
+
+# Install R component
+gu install R
+```
+
+* Install R libs for the demo
+```bash
+Rscript -e 'install.packages("ggplot2")'
 ```
 
 ## Run
