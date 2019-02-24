@@ -1,4 +1,4 @@
-# Talk "De l'R les devs Java!"
+# Talk about R, Java and GraalVM
 
 > Deck for a talk about R compared to Java
 
