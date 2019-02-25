@@ -5,20 +5,20 @@ public class GgplotDemo {
         Context graalvmCtx = 
             Context.newBuilder().allowAllAccess(true).build();
 
-        Source starwarsSrc = 
+        Source rFctSrc = 
             Source.newBuilder("R", 
-                GgplotDemo.class.getResource("/starwars.R")).build();
+                GgplotDemo.class.getResource("/my_function.R")).build();
 
-        Function<ParamsHolder, String> fctR = 
+        Function<ParamsHolder, String> rFct = 
             graalvmCtx.eval(starwarsSrc).as(Function.class);
 
-        get("/starwars/:trilogies", (req, res) -> {
-            String trilogies = req.params(":trilogies");
+        get("/chart/:type", (req, res) -> {
+            String type = req.params(":type");
             
-            Logger.log("CODE JAVA - trilogies=" / trilogies);
+            Logger.log("CODE JAVA - type=" + type);
 
-            String svg = fctR.apply(
-                    new ParamsHolder("starwars.csv", trilogies));
+            String svg = rFct.apply(
+                    new ParamsHolder(type));
 
             res.type("image/svg+xml");
 

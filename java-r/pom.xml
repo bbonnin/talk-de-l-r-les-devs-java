@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <java.home>${GRAALVM_HOME}/jre</java.home>
+        <!--java.home>${GRAALVM_HOME}/jre</java.home-->
         <main.class></main.class>
     </properties>
 
@@ -98,7 +98,7 @@
         <profile>
             <id>plot</id>
             <properties>
-                <main.class>io.millesabords.demos.java_r.StarwarsApp</main.class>
+                <main.class>io.millesabords.demos.java_r.MixApp</main.class>
             </properties>
         </profile>
     </profiles>

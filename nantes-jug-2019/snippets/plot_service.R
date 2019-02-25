@@ -6,10 +6,8 @@ logger <- java.type("demos.java_r.Logger")
 function(params) {
     svg()
 
-    logger$log("CODE R - Process file:", params$filename)
-    logger$log("CODE R - Filter with ", params$trilogies)
-
-    starwars <- read.csv(file = params$filename, header = TRUE)
+    logger$log("CODE R - Param1:", params$param1)
+    logger$log("CODE R - Param2:", params$param2)
 
     if (!is.null(params$trilogies)) {
         trilogies <- as.vector(params$trilogies)

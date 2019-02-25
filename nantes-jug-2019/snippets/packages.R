@@ -15,8 +15,6 @@ library(devtools)
 # Installation hors CRAN
 devtools::install_git("git://github.com/bbonnin/rpulsar.git")
 
-devtools::install_github("bbonnin/rpulsar")
-
 devtools::install_bitbucket("dannavarro/lsr-package@master", 
     auth_user = "haddock", password = "mypassword")
 

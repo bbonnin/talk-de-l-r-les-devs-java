@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Motor Trend Cars</title>
+    <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 75vh;
+            max-height: 60vh;
+        }
+        .center-check {
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <b-navbar toggleable="md" variant="light" type="light" bg sticky="true">
+        <b-navbar-brand tag="h1" class="mb-0">Motor Trend Cars</b-navbar-brand>
+    </b-navbar>
+
+    <b-container>
+        <div class="center-check">
+            <b-form-group label="Miles par gallon selon le poids">
+                <b-form-radio v-for="type in types" :value="type.value" v-model="selectedType" name="type">{{type.text}}</b-form-radio>
+            </b-form-group>
+        </div>
+
+        <div>
+            <img :src="imgUrl" class="center"/>
+        </div>
+    </b-container>
+</div>
+<script>
+        window.app = new Vue({
+            el: '#app',
+            data: {
+                types: [
+                    { text: "Régression LOESS", value: "loess" },
+                    { text: "Régression linéaire selon cyl", value: "lm_cyl" },
+                    { text: "Régression linéaire selon cyl sans interv. de confiance", value: "lm_cyl_no_confidence_interval" }
+                ],
+                selectedType: "loess"
+            },
+            computed: {
+                imgUrl() {
+                    return '/mtcars/svg/' + this.selectedType
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -30,14 +30,14 @@ export const theme = {
   <meta name="twitter:site" content="@_bruno_b_" />
   <meta name="twitter:title" content="R + Java = 💛" />
   <meta name="twitter:description" content="Presentation faite au Nantes JUG en février 2019 sur le langage R à destination des Devs Java" />
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/bbonnin/talk-de-l-r-les-devs-java/master/nantes-jug-2018/img/card.png" />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/bbonnin/talk-r-java-graalvm/master/nantes-jug-2019/img/card.png" />
 </Head>
 
 # R + Java = 💛
 
 <small>(ou 'comment mettre de la data science dans sa webapp avec GraalVM')</small>
 
-Nantes JUG 2019
+Nantes JUG - Février 2019
 
 
 ```notes
@@ -248,7 +248,7 @@ Bcp de mirroirs (dont certains avec leurs propres packages : se rapproche d'un m
     { range: [4, 7] },
     { range: [9, 10] },
     { range: [12, 13], notes: "Utilisation d'une librairie installée"},
-    { range: [15, 24], notes: "Installation depuis des sources diverses" }
+    { range: [15, 22], notes: "Installation depuis des sources diverses" }
   ]}
 />
 
@@ -295,9 +295,13 @@ http://docs.renjin.org/en/latest/interactive/index.html
 
 ---
 
+<img src="img/graalvm_logo.png" width="100%"/>
+
+---
+
 export default Split
 
-<img src="img/graalvm_logo.png" width="90%"/>
+<img src="img/graalvm.png" width="90%"/>
 
 <Box is="div" p={4} fontSize={1}>
   <h2>Polyglot Virtual Machine</h2>
@@ -308,9 +312,6 @@ export default Split
   <p>
   <span style={{fontSize: 'xx-large'}}>&laquo;</span> <b>GraalVM</b> <small> removes the isolation between programming languages and enables interoperability in a shared runtime. 
     It can run either standalone or in the context of OpenJDK, Node.js, Oracle Database, or MySQL.</small><span style={{fontSize: 'xx-large'}}>&raquo;</span>
-  </p>
-  <p>
-    https://www.graalvm.org/
   </p>
 </Box>
 
@@ -353,8 +354,8 @@ Substrate VM: Java AOT, Bibliothèques et outils d'exécution pour la constructi
   { notes: "Service construisant un SVG" },
     { range: [5, 6], notes: "Initialisation du contexte GraalVM" },
     { range: [8, 13], notes: "Chargement du code R" },
-    { range: [15, 26], "notes": "Service web d'accès au SVG" },
-    { range: [20, 21], notes: "Appel de la fonction R, qui retourne le SVG" }
+    { range: [15, 27], "notes": "Service web d'accès au SVG" },
+    { range: [21, 22], notes: "Appel de la fonction R, qui retourne le SVG" }
   ]}
 />
 
@@ -396,11 +397,12 @@ avoir dans un proche avenir une coopération forte où chaque technologie pourra
 # Pour aller plus loin
 
 * https://www.r-project.org/
+* https://www.meetup.com/fr-FR/Meetup-R-Nantes
 * https://www.graalvm.org/
+* https://github.com/bbonnin/graalvm-examples
 
 ---
 
 # Merci !
 
-[https://github.com/bbonnin/talk-de-l-r-les-devs-java](https://github.com/bbonnin/talk-de-l-r-les-devs-java)
-[https://github.com/bbonnin/graalvm-examples](https://github.com/bbonnin/graalvm-examples)
+[https://github.com/bbonnin/talk-r-java-graalvm](https://github.com/bbonnin/talk-r-java-graalvm)
