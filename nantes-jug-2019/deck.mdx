@@ -62,18 +62,6 @@ Bien, tout d'abord, je me présente rapidement, blablabla...
 
 ---
 
-# Avertissement
-
-Ce talk s'adresse aux personnes qui ne connaissent pas le langage R
-mais ne fait qu'effleurer le sujet. 
-Ce talk n'est pas une introduction à GraalVM, mais plus une intro à la data science
-pour les développeurs Java qui voudraient comprendre un monde étrange, le langage R
-et ses méandres.
-
-https://github.com/neomatrix369/awesome-graal
- 
----
-
 export default Split
 
 <SplitElement img="img/Rlogo.png" backgroundColor="white" color="white"/>
@@ -254,6 +242,20 @@ Bcp de mirroirs (dont certains avec leurs propres packages : se rapproche d'un m
 
 ---
 
+<CodeSurfer
+  title="Manipulation de données avec dyplr"
+  code={require("!raw-loader!./snippets/packages_ex.R")}
+  lang="python"
+  steps={[
+    { range: [1, 7], notes: "Les packages peuvent n'être que des données !" },
+    { range: [9, 28], notes: "Exploration avec dyplr" },
+    { range: [30, 35], notes: "Opérateur de pipe" },
+    { range: [37, 40], notes: "Un dernier pour la route" }
+  ]}
+/>
+
+---
+
 export default Split
 
 <SplitElement img="img/ide_r.png" title="R" subtitle="R Studio, Jupyter, ..." backgroundColor="black" color="white"/>
@@ -332,56 +334,44 @@ Substrate VM: Java AOT, Bibliothèques et outils d'exécution pour la constructi
 
 <img src="img/graalvm_archi.png" width="80%" />
 
----
-
-## Demo - Box Office Star Wars
-
-<img src="img/graalvm_demo.png" width="80%" />
-
-<!--DemoStarwars/-->
-
-```notes
-[https://github.com/bbonnin/talk-de-l-r-les-devs-java/tree/master/java-r](https://github.com/bbonnin/talk-de-l-r-les-devs-java/tree/master/java-r)
-```
-
----
-
-<CodeSurfer
-  title="GraalVM (Java part)"
-  code={require("!raw-loader!./snippets/plot_service.java")}
-  lang="java"
-  steps={[
-  { notes: "Service construisant un SVG" },
-    { range: [5, 6], notes: "Initialisation du contexte GraalVM" },
-    { range: [8, 13], notes: "Chargement du code R" },
-    { range: [15, 27], "notes": "Service web d'accès au SVG" },
-    { range: [21, 22], notes: "Appel de la fonction R, qui retourne le SVG" }
-  ]}
-/>
-
 ```notes
 Le moteur de R est FastR (d'Oracle)
 ```
 
 ---
 
+## Exemple - Génération de charts en R servis par un service Java 
+
+<img src="img/graalvm_demo.png" width="80%" />
+
+---
+
 <CodeSurfer
-  title="GraalVM (R part)"
+  title="GraalVM (Partie Java)"
+  code={require("!raw-loader!./snippets/plot_service.java")}
+  lang="java"
+  steps={[
+  { notes: "Service construisant un SVG" },
+    { range: [5, 6], notes: "Initialisation du contexte GraalVM" },
+    { range: [8, 13], notes: "Chargement du code R" },
+    { range: [15, 27], notes: "Service web d'accès au SVG" },
+    { range: [20, 21], notes: "Appel de la fonction R, qui retourne le SVG" }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="GraalVM (Partie R)"
   code={require("!raw-loader!./snippets/plot_service.R")}
   lang="python"
   steps={[
     { notes: "Fonction R construisant un SVG" },
-    { lines: [4, 9, 10], notes: "Utilisation d'un type (classe) venant de Java"},
-    { lines: [6, 12], notes: "Utilisation direct de l'attribut filename (String)" },
-    { lines: [6, 14, 15, 16, 17], notes: "Utilisation de l'attribut trilogies (tableau d'entiers)" },
-    { range: [21, 25], notes: "Construction du SVG avec ggplot2 et retour du SVG" }
+    { lines: [4, 9], notes: "Import et utilisation d'une classe Java"},
+    { lines: [9, 11], notes: "Utilisation direct de l'attribut type (String)" },
+    { range: [11, 29], notes: "Construction du SVG avec ggplot2" }
   ]}
 />
-
-```notes
-Le moteur de R est FastR (d'Oracle ?)
-
-```
 
 ---
 
@@ -398,6 +388,7 @@ avoir dans un proche avenir une coopération forte où chaque technologie pourra
 
 * https://www.r-project.org/
 * https://www.meetup.com/fr-FR/Meetup-R-Nantes
+* http://larmarange.github.io/analyse-R/manipuler-les-donnees-avec-dplyr.html
 * https://www.graalvm.org/
 * https://github.com/bbonnin/graalvm-examples
 

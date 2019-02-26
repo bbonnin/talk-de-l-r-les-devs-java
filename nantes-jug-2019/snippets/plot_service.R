@@ -6,19 +6,27 @@ logger <- java.type("demos.java_r.Logger")
 function(params) {
     svg()
 
-    logger$log("CODE R - Param1:", params$param1)
-    logger$log("CODE R - Param2:", params$param2)
+    logger$log("CODE R - Type of plot:", params$type)
 
-    if (!is.null(params$trilogies)) {
-        trilogies <- as.vector(params$trilogies)
-        starwars <- starwars[starwars$trilogy %in% trilogies, ]
-    }
+    switch(params$type,
+        'loess'={
+            plot <- ggplot(mtcars, aes(x = wt, y = mpg)) +
+                geom_smooth(method = "loess")
 
-    starwars$title <- factor(starwars$title, levels = starwars$title)
+        },
+        'lm_cyl'={
+            plot <- ggplot(mtcars, 
+                    aes(x = wt, y = mpg, color = cyl, shape = cyl)) +
+                geom_smooth(method = "lm")
+        },
+        {
+            plot <- ggplot(mtcars, aes(x = wt, y = mpg))
+        }
+    )
 
-    plot <- ggplot(
-            data = starwars, 
-            ...)
+    plot <- plot + geom_point(size=3.0) +
+        xlab('Weight (x 1000lbs)') + ylab('Miles per Gallon') +
+        theme_minimal()
 
     print(plot)
     svg.off()

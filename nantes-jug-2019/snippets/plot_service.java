@@ -10,7 +10,7 @@ public class GgplotDemo {
                 GgplotDemo.class.getResource("/my_function.R")).build();
 
         Function<ParamsHolder, String> rFct = 
-            graalvmCtx.eval(starwarsSrc).as(Function.class);
+            graalvmCtx.eval(rFctSrc).as(Function.class);
 
         get("/chart/:type", (req, res) -> {
             String type = req.params(":type");
