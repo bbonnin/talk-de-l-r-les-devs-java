@@ -24,3 +24,23 @@ my_vec[my_vec > 2]
 nb_days <- c(31, 28, 31)
 names(nb_days) <- c("january", "february", "march")
 nb_days["january"]
+
+my_matrix <- matrix(data, nrow=x, ncol=y, ...)
+my_matrix <- matrix(rnorm(30), nrow=5, ncol=6)
+my_matrix <- matrix(1:9, byrow = TRUE, nrow = 3)
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6
+[3,]    7    8    9
+
+my_matrix[2, 3]      # 6
+my_matrix[, 2]       # 2 5 8
+
+my_matrix + 2
+my_matrix * 3
+my_matrix ^ 2
+my_matrix %*% my_matrix # produit avec elle-même
+
+t(my_matrix)       # transposée de my_matrix
+solve(my_matrix)   # inverse de my_matrix
+rowSums(my_matrix) # somme de chaque ligne

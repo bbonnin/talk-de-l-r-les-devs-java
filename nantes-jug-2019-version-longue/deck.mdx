@@ -37,15 +37,27 @@ export const theme = {
 
 <small>(ou "<i>comment mettre de la data science dans sa webapp avec GraalVM</i>")</small>
 
-Bruno Bonnin
-
-*Nantes JUG - Février 2019*
-
-
+Nantes JUG - Février 2019
 
 
 ```notes
 Bonjour à tous et bienvnue à ce quickie sur le monde merveilleux de R à destination des développeurs Java.
+```
+
+---
+
+export default Split
+
+<Box>
+  <h2>whoami</h2>
+  <p>Bruno Bonnin - @_bruno_b_</p>
+  <i>Vieux développeur</i>
+</Box>
+
+<SplitElement img="img/haddock.png" backgroundColor="black" color="white"/>
+
+```notes
+Bien, tout d'abord, je me présente rapidement, blablabla...
 ```
 
 ---
@@ -57,9 +69,8 @@ export default Split
 <Box is="div" p={4}>
   <h2>Langage de script</h2>
   <p>Inventé en 1993 (Université d'Auckland)</p>
-  <p>À l’origine: S, un langage pour "programmer avec des données"</p>
-  <p>Dédié à la manipulation de données, aux calculs et aux graphiques</p>
-  <p>Très utilisé dans le monde de la data science</p>
+  <p>Dédié aux statistiques, très utilisé dans le monde de la data science</p>
+  <p>Grande communauté, beaucoup de librairies</p>
   <p>Open source</p>
 </Box>
 
@@ -111,21 +122,16 @@ Et vous pourrez, alors, attaquer directement vos développements !!
 ---
 
 <CodeSurfer
-  title="R, pour les calculs..."
-  code={require("!raw-loader!./snippets/calcul.R")}
+  title="Focus sur les vecteurs..."
+  code={require("!raw-loader!./snippets/vector.R")}
   lang="python"
   showNumbers={false}
   steps={[
     { range: [1, 5], notes: "Dans un vecteur, tous les éléments sont de même type" },
-    { range: [7, 10], notes: "Quelques opérations" },
-    { range: [12, 15], notes: "Fonctions sur les vecteurs" },
-    { range: [17, 22], notes: "Accès aux éléments d'un vecteur" },
-    { range: [24, 26], notes: "Nommage des éléments" },
-    { range: [28, 34], notes: "Dans une matrice, tous les éléments sont de même type" },
-    { range: [36, 37], notes: "Accès aux éléments d'une matrice" },
-    { range: [39, 42], notes: "Opérations sur les matrices" },
-    { range: [44, 46], notes: "Fonctions de base sur les éléments" }
-    
+    { range: [7, 13], notes: "Accès aux éléments d'un vecteur" },
+    { range: [15, 19], notes: "Quelques opérations" },
+    { range: [21, 27], notes: "Nommage des éléments" },
+    { range: [29, 32], notes: "Fonctions sur les vecteurs" }
   ]}
 />
 
@@ -137,18 +143,43 @@ et le premier indice est 1 !!!
 ---
 
 <CodeSurfer
-  title="R, pour la manipulation de données"
+  title="... et les matrices"
+  code={require("!raw-loader!./snippets/matrix.R")}
+  lang="python"
+  showNumbers={false}
+  steps={[
+    { range: [1, 8], notes: "Dans une matrice, tous les éléments sont de même type" },
+    { range: [10, 12], notes: "Accès aux éléments d'une matrice" },
+    { range: [14, 24], notes: "Création de la matrice à partir du vecteur" },
+    { range: [26, 34], notes: "Nommage des colonnes/lignes" },
+    { range: [36, 38], notes: "Accès aux éléments" },
+    { range: [40, 42], notes: "Fonctions de base sur les éléments" }
+  ]}
+/>
+
+```notes
+Tableau à deux dimensions.
+Pour construire une matrice, on part d'un set de données.
+```
+
+---
+
+![](img/builtin_fcts.png)
+
+---
+
+<CodeSurfer
+  title="Les data frames"
   code={require("!raw-loader!./snippets/dataframe.R")}
   lang="python"
   showNumbers={false}
   steps={[
     { range: [1, 1], notes: "Chargement des données" },
     { range: [3, 6], notes: "Premiers éléments de la data frame" },
-    { range: [8, 10], notes: "Accès aux éléments" },
-    { range: [12, 15], notes: "Structure des données" },
-    { range: [17, 25], notes: "Informations sur les données" },
-    { range: [27, 32], notes: "Ajout d'une colonne" },
-    { range: [34, 36], notes: "Opérations sur les éléments" }
+    { range: [8, 11], notes: "Structure des données" },
+    { range: [13, 21], notes: "Informations sur les données" },
+    { range: [23, 28], notes: "Ajout d'une colonne" },
+    { range: [30, 32], notes: "Opérations sur les éléments" }
   ]}
 />
 
@@ -162,7 +193,7 @@ dans une colonne, tous les éléments doivent avoir le même type.
 
 export default Split
 
-<Code title="R, pour les graphiques" code={require("!raw-loader!./snippets/plots.R")}/>
+<Code title="Graphiques" code={require("!raw-loader!./snippets/plots.R")}/>
 
 <SplitElement img="img/plots.png" backgroundColor="white" color="black"/>
 
@@ -201,10 +232,11 @@ Bcp de mirroirs (dont certains avec leurs propres packages : se rapproche d'un m
   showNumbers={false}
   steps={[
     {},
-    { range: [1, 1], notes: "Installation depuis les repos du CRAN" },
-    { range: [3, 3], notes: "Suppression d'un package" },
-    { range: [5, 5], notes: "Utilisation d'une librairie installée"},
-    { range: [7, 13], notes: "Installation depuis des sources diverses, hors CRAN" }
+    { range: [1, 2], notes: "Installation depuis les repos du CRAN" },
+    { range: [4, 7] },
+    { range: [9, 10] },
+    { range: [12, 13], notes: "Utilisation d'une librairie installée"},
+    { range: [15, 22], notes: "Installation depuis des sources diverses" }
   ]}
 />
 
@@ -216,11 +248,19 @@ Bcp de mirroirs (dont certains avec leurs propres packages : se rapproche d'un m
   lang="python"
   steps={[
     { range: [1, 7], notes: "Les packages peuvent n'être que des données !" },
-    { range: [9, 29], notes: "Exploration avec dyplr" },
-    { range: [31, 37], notes: "Inspiré par le package magrittr" },
-    { range: [39, 42], notes: "Un dernier pour la route" }
+    { range: [9, 28], notes: "Exploration avec dyplr" },
+    { range: [30, 35], notes: "Opérateur de pipe" },
+    { range: [37, 40], notes: "Un dernier pour la route" }
   ]}
 />
+
+---
+
+export default Split
+
+<SplitElement img="img/ide_r.png" title="R" subtitle="R Studio, Jupyter, ..." backgroundColor="black" color="white"/>
+
+<SplitElement img="img/ide_java.png" title="Java" subtitle="Intellij, Eclipse, ..." backgroundColor="white" color="black"/>
 
 ---
 
@@ -285,9 +325,9 @@ Parler du fait, qu'avec GraalVM, on va pouvoir construire des applications polyg
 et performante (image native), avec une bien meilleure intégration des différentes competences 
 developpeurs/statisticiens/data scientists
 
-Graal: JIT compilateur (just in time)
+Graal: JIT compilateur
 Truffle: Cadre d'implémentation linguistique / Interprète AST
-Substrate VM: Java AOT (ahead of time), Bibliothèques et outils d'exécution pour la construction de code compilé
+Substrate VM: Java AOT, Bibliothèques et outils d'exécution pour la construction de code compilé
 ```
 
 ---
